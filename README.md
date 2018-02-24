@@ -1,5 +1,5 @@
 <!-- Library Logo -->
-<img src="https://github.com/jrvansuita/RabbitArchiver/blob/master/icons/icon128.png?raw=true" align="left" hspace="1" vspace="1">
+<img src="icons/icon128.png?raw=true" align="left" hspace="1" vspace="1">
 
 
 
@@ -12,16 +12,16 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
 
 # Usage
 
-**Drag & Drop** the RabbitArchiver.crx file on to the [Chrome Extensions](chrome://extensions/) page.
-> 1. **Settings-Icon** > **Tools** > **Extensions**  
+**Drag & Drop** the [RabbitArchiver.crx](/extension/RabbitArchiver.crx) file on to the [Chrome Extensions](chrome://extensions/) page.
+1. **Settings-Icon** > **Tools** > **Extensions**  
 >( the 'three horizontal-bars' icon in the top-right corner )
 
-> 2. **Drag and drop** the "**RabbitArchiver.crx**" extension file onto the [Extensions page](chrome://extensions/) from [step 1]  
+2. **Drag and drop** the "**RabbitArchiver.crx**" extension file onto the [Extensions page](chrome://extensions/) from [step 1]  
 >( RabbitArchiver.crx file should likely be in your *Downloads* directory )
 
-> 3. **Click to Install**  
+3. **Click to Install**  
 
-> 4. Open you Facebook Business Inbox Page and click in the rabbit icon(On Extensions bar) to run the app.
+4. Open you Facebook Business Inbox Page and click in the rabbit icon(On Extensions bar) to run the app.
 
 
 #
