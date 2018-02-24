@@ -11,7 +11,7 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
 </br>
 
 # Install
- On [Chrome Web Store](https://chrome.google.com/webstore), access the [Rabbit Archiver](https://chrome.google.com/webstore/detail/rabbit-archiver/kobnnffpeggijcjgcnimpjkjnkgbfdad) app page and click "Add to Chrome". 
+ On [Chrome Web Store](https://chrome.google.com/webstore), access the [Rabbit Archiver](https://chrome.google.com/webstore/detail/rabbit-archiver/kobnnffpeggijcjgcnimpjkjnkgbfdad) app page and click "**Add to Chrome**". 
 
 # Manual Install
 
