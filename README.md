@@ -27,7 +27,7 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
 # Usage
  
  Open you Facebook Business Inbox Page and click in the rabbit icon to **run the app**.
- *Rabbit Icon is placed on **extensions bar** in the top-right corner, next to the chrome settings icon*
+ Rabbit Icon is placed on **extensions bar** in the top-right corner, next to the chrome settings icon
 
 #
 
