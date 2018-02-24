@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Rabbit Archiver",
+  "version": "0.1",
+  "version_name": "0.1",
+  "content_scripts": [{
+    "matches": [
+      "https://www.facebook.com/*/inbox/*",
+      "https://business.facebook.com/*/inbox/*"
+    ],
+    "js": ["jquery.min.js", "content.js", "fb-messager.js", "struct.js", "util.js"]
+  }],
+  "browser_action": {
+    "default_icon": "icons/icon.png"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
