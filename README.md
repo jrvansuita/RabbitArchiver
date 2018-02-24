@@ -2,9 +2,8 @@
 <img src="icons/icon128.png?raw=true" align="left" hspace="1" vspace="1">
 
 
-
-# Rabbit Archiver
-
+[![ghit.me](https://ghit.me/badge.svg?repo=jrvansuita/RabbitArchiver)](https://ghit.me/repo/jrvansuita/RabbitArchiver)
+# Rabbit Archiver  
 
 This is a [Chrome extension](https://developer.chrome.com/extensions) that handles the mess your [Facebook Messenger](https://facebook.messenger.com) bot makes on your business page inbox.  When your facebook business page receives a lot of messages per day and you care about the users reply, the first thing you think is to plug a chat bot into it and let it to do the hard work.  At the first moment, every thing will work fine. The bot AI will reply the messages in the most cases. But, at sometime, the AI will not understand what users are saying. Your inbox will be full of unreplied messages. This app will put to spam folder the messages that the bot didn't understand and will mark as done the replied messages. Later, you can reply the users manually while train your bot AI all the missed phrases.
 
