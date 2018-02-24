@@ -10,7 +10,10 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
 
 </br>
 
-# Usage
+# Install
+ On [Chrome Web Store](https://chrome.google.com/webstore), access the [Rabbit Archiver](https://chrome.google.com/webstore/detail/rabbit-archiver/kobnnffpeggijcjgcnimpjkjnkgbfdad) app page and click "Add to Chrome". 
+
+# Manual Install
 
 **Drag & Drop** the [RabbitArchiver.crx](/extension/RabbitArchiver.crx) file on to the [Chrome Extensions](chrome://extensions/) page.
 1. Settings-Icon > Tools > Extensions  
@@ -21,7 +24,9 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
 
 3. Click "**Add Extension**" to install
 
-4. Open you Facebook Business Inbox Page and click in the rabbit icon to **run the app**  
+# Usage
+ 
+ Open you Facebook Business Inbox Page and click in the rabbit icon to **run the app**.
  *Rabbit Icon is placed on **extensions bar** in the top-right corner, next to the chrome settings icon*
 
 #
