@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Rabbit Archiver",
-  "version": "0.1",
-  "version_name": "0.1",
+  "version": "0.2",
+  "version_name": "0.2",
   "content_scripts": [{
     "matches": [
       "https://www.facebook.com/*/inbox/*",
