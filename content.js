@@ -1,5 +1,5 @@
 // content.js
-console.log(chrome.runtime.getManifest().name + ' loaded.');
+msgAppLoaded();
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {

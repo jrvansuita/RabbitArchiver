@@ -8,7 +8,13 @@
       "https://www.facebook.com/*/inbox/*",
       "https://business.facebook.com/*/inbox/*"
     ],
-    "js": ["jquery.min.js", "content.js", "rabbit-archiver.js", "struct.js", "util.js"]
+    "js": ["jquery.min.js",
+      "msg.js",
+      "content.js",
+      "rabbit-archiver.js",
+      "struct.js",
+      "util.js"
+    ]
   }],
   "browser_action": {
     "default_icon": "icons/icon.png"

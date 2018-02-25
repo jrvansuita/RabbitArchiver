@@ -1,27 +1,32 @@
 /*jshint esversion: 6 */
 /*  Handle the Facebook Messenger Inbox Mess when you plug a Chat Bot into it. */
 
+var pageName;
+
 function run() {
+  pageName = $(sel.page_name).val();
   accessInbox();
   startManaging();
 }
 
+/* Go to the inbox if you're not */
 function accessInbox() {
-  console.log('Starting process...');
-  if ($(sel.inbox).text() !== 'Caixa de Entrada') {
-    $(sel.inbox_combo).click();
-    $(sel.inbox_combo_item).click();
-  }
+  msgStart();
+
+  //if ($(sel.inbox).text() !== 'Caixa de Entrada') {
+  $(sel.inbox_combo).click();
+  $(sel.inbox_combo_item).click();
+  //}
 }
 
 var chatItems;
 var index;
 
+/* Capture the chat items as array object and define the current index
+This function starts the process */
 function startManaging() {
   chatItems = $(sel.chat_items);
   index = chatItems.length;
-  console.log(chatItems.length + ' chats loaded.');
-
   handleChats();
 }
 
@@ -29,33 +34,80 @@ function handleChats() {
   index--;
 
   if (index >= 0) {
-    chatItems[index].click();
-    checkLastPersonSpoke(500);
-  } else if (chatItems.length > 0) {
-    startManaging();
+
+    if (tryMarkAsDoneChatItem()) {
+      later(sel.delay).then(() => {
+        handleChats();
+      });
+    } else {
+      chatItems[index].click();
+      checkOpenChat(500);
+    }
+
+  } else {
+    if (chatItems.length > 0) {
+      startManaging();
+    } else {
+      msgFinished();
+    }
   }
 }
 
-function checkLastPersonSpoke(delay) {
-  var time = delay + 500;
 
-  later(time).then(() => {
+/* If we can determine that the page was the last one who spoke,
+we can mark as done on the chat item instead of opening it to check */
+function tryMarkAsDoneChatItem() {
+  var current = $(chatItems[index]);
+  var preview = current.find(sel.preview_last_msg);
 
+  //First look out for the paper clips
+  var done = preview.find(sel.paper_clips).length > 0;
+
+  //If we didn't find the paper clips...
+  if (!done) {
+    //Remove the preview message from html element.
+    current.find(sel.preview_last_msg + '>span>span').empty();
+    //And check if it contains something like You: ... or Page Name: ...
+    done = preview.text().length > 0 && preview.text().contains(':');
+  }
+
+  if (done) {
+    msgDone(pageName);
+    //Fine! Your page sent the last message, we can mark this conversation as done.
+    current.find(sel.done_item).click();
+    return true;
+  }
+
+  return false;
+}
+
+
+/* Check the last person who spoke on the current opened conversation and apply
+the criteria to mark as done or as spam */
+function checkOpenChat(delay) {
+  //As we don't have a load callback to track when the conversation is loaded
+  //We have to check when it's ready to us time to time.
+  later(delay).then(() => {
+
+    //If we can't access the last one who sent a message, means the conversation didn't load yet.
     if ($(sel.last_spoke).length === 0) {
-      checkLastPersonSpoke(time);
+      //Try it again, now add more 500 ms
+      checkOpenChat(delay + 500);
     } else {
+      var whoSentTheLastMessage = $(sel.last_spoke).last().text().trim();
 
-      console.log("Last one to speak was " + $(sel.last_spoke).last().text());
-      console.log($(sel.name).text());
-
-      if ($(sel.name).text().contains($(sel.last_spoke).last().text().trim())) {
+      //Check if the last message sent was by the person who we are chatting with
+      if ($(sel.name).text().contains(whoSentTheLastMessage)) {
+        //Ok, later we need to access the spam folder to reply this message
         $(sel.spam).first().click();
-        console.log("Spam clicked");
+        msgSpam(whoSentTheLastMessage);
       } else {
+        //Don't worry, this message already was responded
         $(sel.done).click();
-        console.log("Done clicked");
+        msgDone(whoSentTheLastMessage);
       }
 
+      //Go to the next message
       handleChats();
     }
 
