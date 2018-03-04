@@ -23,9 +23,10 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
 3. Click "**Add Extension**" to install
 
 # Usage
- 
+
  Open you Facebook Business Inbox Page and click in the rabbit icon to **run the app**.
- Rabbit Icon is placed on **extensions bar** in the top-right corner, next to the chrome settings icon
+ Rabbit Icon is placed on **extensions bar** in the top-right corner, next to the chrome settings icon.
+ Everytime you want to clean the page inbox, you have to push the rabbit button to start the cleaning.
 
 #
 
