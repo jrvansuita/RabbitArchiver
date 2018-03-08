@@ -1,6 +1,6 @@
 var sel = {
   //Delay between one message to another
-  delay: 300,
+  delay: 1000,
   //Holds the page name
   page_name: "._1frb",
   //Holds the person name on opened conversation

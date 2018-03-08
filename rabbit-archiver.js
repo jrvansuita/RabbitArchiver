@@ -111,6 +111,7 @@ function checkOpenChat(delay) {
   //Wait 10 sec max
   if (delay > 10000) {
     markAsDoneOnChatList();
+    handleChats();
   } else {
     //As we don't have a load callback to track when the conversation is loaded
     //We have to check when it's ready to us time to time.
