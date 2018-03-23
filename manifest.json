@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
   "name": "Rabbit Archiver",
-  "version": "0.3",
-  "version_name": "0.3",
+  "version": "0.4",
+  "version_name": "0.4",
   "content_scripts": [{
     "matches": [
       "https://www.facebook.com/*/inbox/*",
       "https://business.facebook.com/*/inbox/*"
     ],
     "js": ["jquery.min.js",
-      "msg.js",
+      "bot-speak.js",
       "content.js",
       "rabbit-archiver.js",
       "struct.js",

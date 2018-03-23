@@ -2,11 +2,18 @@
 /*  Handle the Facebook Messenger Inbox Mess when you plug a Chat Bot into it. */
 
 var pageName;
+var isRunning = false;
 
 function run() {
-  pageName = $(sel.page_name).val();
-  accessInbox();
-  startManaging();
+
+  if (isRunning) {
+    isRunning = false;
+  } else {
+    isRunning = true;
+    pageName = $(sel.page_name).val();
+    accessInbox();
+    startManaging();
+  }
 }
 
 /* Go to the inbox if you're not */
@@ -31,41 +38,33 @@ function startManaging() {
 }
 
 function handleChats() {
-  index--;
+  if (isRunning) {
+    index--;
 
-  if (index >= 0) {
+    if (index >= 0) {
 
-    if (tryMarkAsDoneChatItem()) {
-      later(sel.delay).then(() => {
-        handleChats();
-      });
+      paintBrush(chatItems[index - 1], $(chatItems[index - 1]).text());
+
+      if (tryMarkAsDoneChatItem()) {
+        later(sel.fast_delay).then(() => {
+          handleChats();
+        });
+      } else {
+        chatItems[index].click();
+        checkOpenChat(sel.delay);
+      }
+
     } else {
-      chatItems[index].click();
-      checkOpenChat(500);
+      if (chatItems.length > 0) {
+        startManaging();
+      } else {
+        //No more messages is showing
+        msgFinished();
+        tryToRestart(sel.long_delay);
+      }
     }
-
   } else {
-    if (chatItems.length > 0) {
-      startManaging();
-    } else {
-      //No more messages is showing
-      msgFinished();
-
-      var wait = 30000;
-      msgTryAgain(wait);
-
-      //Wait some time to search for new messages
-      later(wait).then(() => {
-
-        //Now, if we find any messages, we continue, if not, the process is stopped.
-        if ($(sel.chat_items).length > 0) {
-          msgProceedProcess();
-          startManaging();
-        } else {
-          msgNoMoreMessages();
-        }
-      });
-    }
+    msgAborted();
   }
 }
 
@@ -109,7 +108,7 @@ the criteria to mark as done or as spam */
 function checkOpenChat(delay) {
   //We can't wait to much time to analyze and process one single conversation. Time is money
   //Wait 10 sec max
-  if (delay > 10000) {
+  if (delay > sel.big_long_delay) {
     markAsDoneOnChatList();
     handleChats();
   } else {
@@ -120,7 +119,7 @@ function checkOpenChat(delay) {
       //If we can't access the last one who sent a message, means the conversation didn't load yet.
       if ($(sel.last_spoke).length === 0) {
         //Try it again, now add more 500 ms
-        checkOpenChat(delay + 500);
+        checkOpenChat(delay + sel.delay);
       } else {
         var whoSentTheLastMessage = $(sel.last_spoke).last().text().trim();
 
@@ -143,4 +142,27 @@ function checkOpenChat(delay) {
       console.log(e);
     });
   }
+}
+
+function tryToRestart(wait) {
+  msgTryAgain(wait);
+
+  //Wait some time to search for new messages
+  later(wait).then(() => {
+
+    //Now, if we find any messages, we continue, if not, the process is stopped.
+    if ($(sel.chat_items).length > 0) {
+      msgProceedProcess();
+      startManaging();
+    } else {
+
+      if (wait < sel.big_long_delay) {
+        wait += sel.long_delay;
+        tryToRestart(wait);
+      } else {
+        msgNoMoreMessages();
+      }
+    }
+  });
+
 }

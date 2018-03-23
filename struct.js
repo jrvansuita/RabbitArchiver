@@ -1,6 +1,12 @@
 var sel = {
-  //Delay between one message to another
-  delay: 1000,
+  //Fast Delay
+  fast_delay: 300,
+  //Normal delay
+  delay: 500,
+  //Long delay
+  long_delay: 5000,
+  //Long delay
+  big_long_delay: 30000,
   //Holds the page name
   page_name: "._1frb",
   //Holds the person name on opened conversation
@@ -16,7 +22,7 @@ var sel = {
   //Paper clips identifier
   paper_clips: "._j0r",
   //A chat item
-  chat_items: "._4k8w ",
+  chat_items: "._4k8w",
   //Holds the name of the last person who spoke on an open chat
   last_spoke: "._ih3",
   //Done button on chat item
