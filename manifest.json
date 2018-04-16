@@ -13,7 +13,8 @@
       "content.js",
       "rabbit-archiver.js",
       "struct.js",
-      "util.js"
+      "util.js",
+      "ignore.js"
     ]
   }],
   "browser_action": {

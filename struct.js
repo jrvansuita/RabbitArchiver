@@ -8,7 +8,7 @@ var sel = {
   //Long delay
   big_long_delay: 30000,
   //Holds the page name
-  page_name: "._1frb",
+  page_name: "._skv",
   //Holds the person name on opened conversation
   name: "._iyo",
   //It's the element that keeps the inbox type current selected(Inbox, Not Read, Done, Spam)
@@ -19,8 +19,8 @@ var sel = {
   inbox_combo_item: "._4h_-",
   //Holds the express last message of the chat on chat item
   preview_last_msg: "._4k8y>._4ik4._4ik5",
-  //Paper clips identifier
-  paper_clips: "._j0r",
+  //Paper clips or doc identifier
+  preview_glyph: "._j0r,i.img",
   //A chat item
   chat_items: "._4k8w",
   //Holds the name of the last person who spoke on an open chat

@@ -10,7 +10,8 @@ function run() {
     isRunning = false;
   } else {
     isRunning = true;
-    pageName = $(sel.page_name).val();
+    pageName = $(sel.page_name).text();
+    msgStart();
     accessInbox();
     startManaging();
   }
@@ -18,8 +19,6 @@ function run() {
 
 /* Go to the inbox if you're not */
 function accessInbox() {
-  msgStart();
-
   //if ($(sel.inbox).text() !== 'Caixa de Entrada') {
   $(sel.inbox_combo).click();
   $(sel.inbox_combo_item).click();
@@ -76,19 +75,15 @@ function tryMarkAsDoneChatItem() {
   var preview = current.find(sel.preview_last_msg);
 
   //First look out for the paper clips
-  var done = preview.find(sel.paper_clips).length > 0;
-
-  //If we didn't find the paper clips...
-  if (!done) {
-    //Remove the preview message from html element.
-    current.find(sel.preview_last_msg + '>span>span').empty();
-    //And check if it contains something like You: ... or Page Name: ...
-    done = preview.text().length > 0 && preview.text().contains(':');
-  }
+  var done = preview.find(sel.preview_glyph).length > 0;
 
   if (done) {
     //Fine! Your page sent the last message, we can mark this conversation as done.
     markAsDoneOnChatList();
+    return true;
+  } else if (needIgnore(preview.text())) {
+    //If the last sent message need to be ignored
+    markAsDoneOnChatList(true);
     return true;
   }
 
@@ -97,8 +92,10 @@ function tryMarkAsDoneChatItem() {
 
 
 //Mark as done the current message
-function markAsDoneOnChatList() {
-  msgDone(pageName);
+function markAsDoneOnChatList(skipMessage) {
+  if (!skipMessage)
+    msgDone(pageName);
+
   $(chatItems[index]).find(sel.done_item).click();
 }
 
@@ -144,9 +141,29 @@ function checkOpenChat(delay) {
   }
 }
 
+function needIgnore(msg) {
+  var found = true;
+
+  if (msg.length) {
+    msg = msg.toLowerCase();
+
+    var word;
+    found = ignore.some((item) => {
+      word = item;
+      return msg.includes(item);
+    });
+
+    if (found)
+      msgNeedToIgnore(word);
+  }
+
+  return found;
+}
+
 function tryToRestart(wait) {
   msgTryAgain(wait);
 
+  accessInbox();
   //Wait some time to search for new messages
   later(wait).then(() => {
 

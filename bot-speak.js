@@ -26,6 +26,10 @@ function msgNoMoreMessages() {
   speak('No more messages! Shutting down.');
 }
 
+function msgNeedToIgnore(word) {
+  speak("Ignored - Last message contains '" + word + "'");
+}
+
 function msgSpam(name) {
   confirmation(name, false);
 }
