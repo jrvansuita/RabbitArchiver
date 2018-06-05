@@ -30,5 +30,5 @@ var sel = {
   //Done button on an open chat
   done: "._suc._su6._5bpf",
   //Spam button on an open chat
-  spam: "._suc._5bpf"
+  spam: "._3jcz._5zrz"
 };

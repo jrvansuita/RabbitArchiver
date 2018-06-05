@@ -123,7 +123,7 @@ function checkOpenChat(delay) {
         //Check if the last message sent was by the person who we are chatting with
         if ($(sel.name).text().contains(whoSentTheLastMessage)) {
           //Ok, later we need to access the spam folder to reply this message
-          $(sel.spam).first().click();
+          $(sel.spam).click();
           msgSpam(whoSentTheLastMessage);
         } else {
           //Don't worry, this message already was responded
