@@ -4,7 +4,7 @@
 
 # Rabbit Archiver  
 
-This is a [Chrome extension](https://developer.chrome.com/extensions) that handles the mess your [Facebook Messenger](https://facebook.messenger.com) bot makes on your business page inbox.  When your facebook business page receives a lot of messages per day and you care about the users reply, the first thing you think is to plug a chat bot into it and let it to do the hard work.  At the first moment, every thing will work fine. The bot AI will reply the messages in the most cases. But, at sometime, the AI will not understand what users are saying. Your inbox will be full of unreplied messages. This app will put to spam folder the messages that the bot didn't understand and will mark as done the replied messages. Later, you can reply the users manually while train your bot AI all the missed phrases.
+This is a [Chrome extension](https://developer.chrome.com/extensions) that handles the mess  [Facebook Messenger](https://facebook.messenger.com) bot makes on business page inbox.  When your facebook business page receives a lot of messages per day and you care about the users reply, the first thing you think is to plug a chat bot into it and let it to do the hard work.  At the first moment, every thing will work fine. The bot AI will reply the messages in the most cases. But, at sometime, the AI will not understand what users are saying. Your inbox will be full of unreplied messages. This app will put to spam folder the messages that the bot didn't understand and will mark as done the replied messages. Later, you can reply the users manually while train your bot AI all the missed phrases.
 
 </br>
 
@@ -28,23 +28,3 @@ This is a [Chrome extension](https://developer.chrome.com/extensions) that handl
  Rabbit Icon is placed on **extensions bar** in the top-right corner, next to the chrome settings icon.
  Everytime you want to clean the page inbox, you have to push the rabbit button to start the cleaning.
 
-#
-
-<a href="https://plus.google.com/+JuniorVansuita" target="_blank">
- <img src="https://s20.postimg.org/59xees8vt/google_plus.png" alt="Google+" witdh="44" height="44" hspace="10">
-</a>
-<a href="https://www.linkedin.com/in/arleu-cezar-vansuita-júnior-83769271" target="_blank">
- <img src="https://s20.postimg.org/vxoeax4ah/linkedin.png" alt="LinkedIn" witdh="44" height="44" hspace="10">
-</a>
-<a href="https://www.instagram.com/jnrvans/" target="_blank">
- <img src="https://s20.postimg.org/lyyuap5h5/instagram.png" alt="Instagram" witdh="44" height="44" hspace="10">
-</a>
-<a href="https://github.com/jrvansuita" target="_blank">
- <img src="https://s20.postimg.org/jf37glhx5/github.png" alt="Github" witdh="44" height="44" hspace="10">
-</a>
-<a href="https://play.google.com/store/apps/dev?id=8002078663318221363" target="_blank">
- <img src="https://s20.postimg.org/5iuz4plo9/android.png" alt="Google Play Store" witdh="44" height="44" hspace="10">
-</a>
-<a href="mailto:vansuita.jr@gmail.com" target="_blank" >
- <img src="https://s20.postimg.org/slli3vn5l/email.png" alt="E-mail" witdh="44" height="44" hspace="10">
-</a>
